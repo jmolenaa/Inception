@@ -1,0 +1,8 @@
+services:
+  nginx:
+    container_name: nginx
+    ports:
+      - "443:443"
+    build: 
+      context: ./requirements/nginx
+
