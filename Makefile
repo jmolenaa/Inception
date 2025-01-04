@@ -8,7 +8,7 @@ DATA_DIR := srcs/$(shell cat srcs/.env | cut -d'=' -f2)
 
 all:
 	mkdir -p $(DATA_DIR)/database $(DATA_DIR)/web $(DATA_DIR)/variables
-	docker-compose -f $(DOCKER_COMPOSE) up --build
+	cd srcs && docker-compose up --build
 
 test:
 	echo $(DATA_DIR)
