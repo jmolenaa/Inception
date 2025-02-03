@@ -28,9 +28,11 @@ And last, because of the way we do this project it might be outdated in a year o
 
 ### Order of operations
 
-#### Quick order
+#### Order
 
-(Optional) Setup your VM. If you have a laptop with working Docker, please use it, it will probably be much faster than the machines at school, you can setup the machine as the last step. If you have a linux laptop the setup should work mostly the same as the [VM setup](https://github.com/jmolenaa/Inception/blob/main/VM_setup.md) (don't quote me, I used a Mac). On Mac I had to install the docker client from some website, couldn't use brew for it, google how to install docker on Mac it's not hard.
+Keep in mind, this is the order that worked for me, with the knowledge I had at the time. I started with nginx, cause I was already familiar with webservers after the webserv project. I you want to do it differently, feel free to :).
+
+(Optional) Setup your VM. If you have a laptop with working Docker, please use it, it will probably be much faster than the machines at school, you can setup the VM as the last step. If you have a linux laptop the setup should work mostly the same as the [VM setup](https://github.com/jmolenaa/Inception/blob/main/VM_setup.md) (don't quote me, I used a Mac). On Mac I had to install the docker client from the docker website, couldn't use brew for it, google how to install docker on Mac it shouldn't be hard.
 
 1. Setup the [nginx](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/nginx/README.md) container.
 2. Setup the [wordpress](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/wordpress/README.md) container.
@@ -40,3 +42,18 @@ And last, because of the way we do this project it might be outdated in a year o
 6. Connect wordpress to mariadb with [docker-compose](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md) and [volumes](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md#volumes).
 7. Setup [network](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md#networks) for the containers to communicate.
 8. [Setup VM](https://github.com/jmolenaa/Inception/blob/main/VM_setup.md) if you haven't already.
+
+#### Some tips and notes
+
+- Again, keep in mind this whole thing might be outdated at this point
+- Remember to use the penultimate stable version, which might have changed since I did this project (the Alpine version changed whilst I was doing the project)
+- On Mac, if you docker commands don't work, you need the docker desktop application and it needs to be **running**
+- If anything doesn't seem to work even though it used to, your first step should be pruning the system. This means getting rid of any lingering images, or caching or anything else. Docker loves to cache and sometimes behaviour can be weird. For this I use:
+```
+docker stop docker ps -qa
+docker builder prune -f && docker system prune -af
+docker volume rm shell docker volume ls -q
+```
+This usually worked for me, if it isn't, well good luck 🫡
+
+
