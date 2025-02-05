@@ -21,7 +21,7 @@ nginx:
 	docker run --name nginx -d -p 443:443 nginximg
 
 clean:
-# docker stop $(CONTAINER_IDS)
+	docker stop $(CONTAINER_IDS)
 	docker builder prune -f && docker system prune -af
 	docker volume rm $(DOCKER_VOLUMES)
 
