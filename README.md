@@ -17,14 +17,14 @@ I also did several things a bit differently from most of the other repositories 
 And last, because of the way we do this project it might be outdated in a year or two, especially the versions of the Linux distros I use. Keep this in mind 🙂.
 
 ### Contents
-1. [VM setup](https://github.com/jmolenaa/Inception/blob/main/VM_setup.md)
-2. [Dockerfile, containers, images](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/README.md)
+1. [VM setup](./VM_setup.md)
+2. [Dockerfile, containers, images](./srcs/requirements/README.md)
 3. Services
-   - [nginx](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/nginx/README.md)
-   - [wordpress](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/wordpress/README.md)
-   - [mariadb](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/mariadb/README.md)
-4. [docker-compose](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md)
-5. [secrets and environment](https://github.com/jmolenaa/Inception/blob/main/srcs/data/variables/README.md)
+   - [nginx](./srcs/requirements/nginx/README.md)
+   - [wordpress](./srcs/requirements/wordpress/README.md)
+   - [mariadb](./srcs/requirements/mariadb/README.md)
+4. [docker-compose](./srcs/README.md)
+5. [secrets and environment](./srcs/data/variables/README.md)
 
 ### Order of operations
 
@@ -32,16 +32,16 @@ And last, because of the way we do this project it might be outdated in a year o
 
 Keep in mind, this is the order that worked for me, with the knowledge I had at the time. I started with nginx, cause I was already familiar with webservers after the webserv project. I you want to do it differently, feel free to :).
 
-(Optional) Setup your VM. If you have a laptop with working Docker, please use it, it will probably be much faster than the machines at school, you can setup the VM as the last step. If you have a linux laptop the setup should work mostly the same as the [VM setup](https://github.com/jmolenaa/Inception/blob/main/VM_setup.md) (don't quote me, I used a Mac). On Mac I had to install the docker client from the docker website, couldn't use brew for it, google how to install docker on Mac it shouldn't be hard.
+(Optional) Setup your VM. If you have a laptop with working Docker, please use it, it will probably be much faster than the machines at school, you can setup the VM as the last step. If you have a linux laptop the setup should work mostly the same as the [VM setup](./VM_setup.md) (don't quote me, I used a Mac). On Mac I had to install the docker client from the docker website, couldn't use brew for it, google how to install docker on Mac it shouldn't be hard.
 
-1. Setup the [nginx](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/nginx/README.md) container.
-2. Setup the [wordpress](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/wordpress/README.md) container.
-3. Connect nginx to worpdress with [docker-compose](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md) and [volumes](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md#volumes).
-4. Setup the [mariadb](https://github.com/jmolenaa/Inception/blob/main/srcs/requirements/mariadb/README.md) container.
-5. Figure out login credentials, database credentials and TLS/SSL with [secrets and env variables](https://github.com/jmolenaa/Inception/blob/main/srcs/data/variables/README.md)
-6. Connect wordpress to mariadb with [docker-compose](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md) and [volumes](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md#volumes).
-7. Setup [network](https://github.com/jmolenaa/Inception/blob/main/srcs/README.md#networks) for the containers to communicate.
-8. [Setup VM](https://github.com/jmolenaa/Inception/blob/main/VM_setup.md) if you haven't already.
+1. Setup the [nginx](./srcs/requirements/nginx/README.md) container.
+2. Setup the [wordpress](./srcs/requirements/wordpress/README.md) container.
+3. Connect nginx to worpdress with [docker-compose](./srcs/README.md) and [volumes](./srcs/README.md#volumes).
+4. Setup the [mariadb](./srcs/requirements/mariadb/README.md) container.
+5. Figure out login credentials, database credentials and TLS/SSL with [secrets and env variables](./srcs/data/variables/README.md)
+6. Connect wordpress to mariadb with [docker-compose](./srcs/README.md) and [volumes](./srcs/README.md#volumes).
+7. Setup [network](./srcs/README.md#networks) for the containers to communicate.
+8. [Setup VM](./VM_setup.md) if you haven't already.
 
 #### Some tips and notes
 
