@@ -2,12 +2,12 @@
 
 ## Contents
 
-1. [Distribution choice](#1.-distribution-choice)
-2. [Package instalation](#2.-package-instalation)
-3. [ssh setup](#3.-ssh-setup)
-4. [Extra information](#4.-extra-information)
-	- [curl](#4.1-curl)
-	- [docker](#docker)
+1. [Distribution choice](#1-distribution-choice)
+2. [Package instalation](#2-package-instalation)
+3. [ssh setup](#3-ssh-setup)
+4. [Extra information](#4-extra-information)
+	- [curl](#41-curl)
+	- [docker](#42-docker)
 
 ### 1. Distribution choice
 
@@ -55,7 +55,7 @@ Again, not strictly necessary, but this will allow you to use VSCode on your hos
 
 These are some more notes on some of the setup and/or applications and what they're used for. Some of this is optional, some is important for the setup
 
-#### 4.1 curl
+#### 4.1. curl
 
 So, because browsers are kinda fancy nowadays, your browser will probably redirect the url http://localhost:80 to https://localhost:443, which makes it look like you can connect to your website on port 80. This is a problem since the eval sheet specifically asks to test this and says it should not be possible. Now, there's probably a way to turn this off in the browser or do some fancy smancy thing, but you can just use the `curl` command to show that the connection gets refused.  
 Now, I've got an [nginx test](./nginxtest.sh) that runs a couple tests with curl to check if the connections work, but I'll write out what you can test here as well:  
@@ -67,7 +67,7 @@ Now, I've got an [nginx test](./nginxtest.sh) that runs a couple tests with curl
 
 Just keep these handy for the evaluation or test with it yourself to make sure everything works as intended.
 
-#### 4.2 docker
+#### 4.2. docker
 
 So, docker needs permissions to run. You could just use sudo when running it to give it permissions, but that's a bit ugly.  
 Instead you can add your user to the `docker` group, so you will have permissions for the docker daemon. It's just a single command:  
