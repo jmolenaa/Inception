@@ -13,7 +13,10 @@ What this is is a collection of docs on all the separate aspects of the project,
 
 There is a lot of stuff to cover and a lot of code to explain, therefore I won't be keeping everything in one big README, but instead I'll split up the various segments into their own READMEs placed in the folders containing the concepts that they reference. I'll be referencing these READMEs wherever I can so you can switch between them and figure out what you need or don't. <br>
 
+Also, the project can't really be split up into sections, since a lot of the various segments depend on knowledge of the other segments. This can get confusing. I'll be referring to other sections whenever some of the knowledge is required with links to that stuff, so there will be some hopping.<br>
+
 I also did several things a bit differently from most of the other repositories out there, when that happens I'll try and give some explanations and how to adjust stuff if you don't want to bother. <br>
+
 And last, because of the way we do this project it might be outdated in a year or two, especially the versions of the Linux distros I use. Keep this in mind 🙂.
 
 ### Contents
