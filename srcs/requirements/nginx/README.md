@@ -2,7 +2,8 @@
 
 ## Disclaimer
 
-For some of this to make sense, you'll need some knowledge about [Dockerfiles](../README.md) and [secrets](../../data/variables/README.md), although the secrets can be ommited if you lazy.
+For some of this to make sense, you'll need some knowledge about [Dockerfiles](../README.md) and [secrets](../../data/variables/README.md), although the secrets can be ommited if you lazy.  
+I also provide two Dockerfiles, one with secrets and using Alpine, the other with Debian and without secrets. You decide what you want.
 
 ## Contents
 
@@ -49,7 +50,49 @@ A full flowchart of the infrastructure is available in the [docker-compose readm
 
 ### 2. Nginx configuration file
 
-I'll explain here shortly 
+The config file already has short explanations. You can learn more here or just skip this section.
+I'll explain the various lines from the configuration file in more detail here.  
+The config file for reference:
+```nginx
+server {
+	listen 443 ssl;
+	listen [::]:443 ssl;
+	server_name	jmolenaa.42.fr;
+	
+	ssl_protocols TLSv1.2 TLSv1.3;
+	ssl_certificate /run/secrets/ssl_cert;
+	ssl_certificate_key /run/secrets/ssl_key;
+
+	root /var/www/html;
+	index index.php index.html;
+
+
+	location ~ \.php$ {
+		fastcgi_pass wordpress:9000;
+		fastcgi_index index.php;
+		include fastcgi_params;
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	}
+}
+```
+- **`listen 443 ssl;`** – Sets the server to listen on port 443 for IPv4 connections and enables SSL/TLS encryption.  
+- **`listen [::]:443 ssl;`** – Sets the server to listen on port 443 for IPv6 connections and enables SSL/TLS encryption.
+- **`server_name jmolenaa.42.fr;`** – Specifies the domain name that this server will handle requests for.  
+
+- **`ssl_protocols TLSv1.2 TLSv1.3;`** – Specifies which **TLS (Transport Layer Security) versions** are allowed. In this case, it supports **TLS 1.2 and 1.3**, which are secure.  
+- **`ssl_certificate /run/secrets/ssl_cert;`** – Defines the path to the **SSL certificate file**, which is used to encrypt traffic.  
+- **`ssl_certificate_key /run/secrets/ssl_key;`** – Defines the path to the **private key** associated with the SSL certificate, used for decryption and authentication.  
+
+- **`root /var/www/html;`** – Sets the **document root** where website files (HTML, PHP, etc.) are stored.  
+- **`index index.php index.html;`** – Defines the **default files** to be served when a directory is requested. Nginx will try `index.php` first, then `index.html`.  
+
+- **`location ~ \.php$ {`** – Defines a **location block** that handles all requests ending in `.php` (e.g., `index.php`).  
+- **`fastcgi_pass wordpress:9000;`** – Forwards PHP requests to **PHP-FPM** running in a container named `wordpress` on **port 9000**.  
+- **`fastcgi_index index.php;`** – Specifies that **`index.php`** should be used as the default file for directory requests in FastCGI.  
+- **`include fastcgi_params;`** – Loads **predefined FastCGI parameters**, which help pass request details (like headers and environment variables) to PHP-FPM.  
+- **`fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;`** – Sets the **full path** of the PHP script to be executed by PHP-FPM. It combines the `document_root` (`/var/www/html`) with the requested script name (`.php`).  
+
+
 
 ### 3. Nginx Dockerfile
 
