@@ -2,9 +2,6 @@
 
 if [ ! `find /var/lib/mysql -name $DATABASE_NAME` ]; then
 
-	# I get the password for the database through the secrets file and add it to the environment
-	export `cat /run/secrets/db_password`
-
 	# we need to startup the server temporarily to create the database
 	service mariadb start
 

@@ -9,10 +9,6 @@ done
 # cause volumes and cache act weird and wp-config.php can remain as a weird symbolic link on the volume
 if [ ! `find /var/www/html -name wp-config.php` ]; then
 
-	# I get the password for the database and wordpress users through the secrets file and add it to the environment
-	export `cat /run/secrets/db_password`
-	export `cat /run/secrets/wp_passwords`
-
 	# download wordpress command line interface for wordpress setup
 	wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 	chmod +x wp-cli.phar 

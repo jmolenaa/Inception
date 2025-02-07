@@ -6,9 +6,6 @@ services:
       - "443:443"
     volumes:
       - wordpress:/var/www/html
-    secrets:
-      - ssl_cert
-      - ssl_key
     networks:
       - inception
     restart: unless-stopped
@@ -19,9 +16,6 @@ services:
     volumes:
       - wordpress:/var/www/html
     env_file: ${DATA_DIR}/variables/.env
-    secrets:
-      - db_password
-      - wp_passwords
     networks:
       - inception
     restart: unless-stopped
@@ -32,8 +26,6 @@ services:
     volumes:
       - database:/var/lib/mysql
     env_file: ${DATA_DIR}/variables/.env
-    secrets:
-      - db_password
     networks:
       - inception
     restart: unless-stopped
@@ -55,18 +47,6 @@ volumes:
       device: ${DATA_DIR}/database
       o: bind
 
-
-
-secrets:
-  db_password:
-    file: ${DATA_DIR}/variables/.db_password
-  wp_passwords:
-    file: ${DATA_DIR}/variables/.wp_passwords
-  ssl_cert:
-    file: ${DATA_DIR}/variables/.jmolenaa.cert
-  ssl_key:
-    file: ${DATA_DIR}/variables/.jmolenaa.key
-    
 
 
 networks:
