@@ -2,8 +2,7 @@
 
 ## Disclaimer
 
-For some of this to make sense, you'll need some knowledge about [Dockerfiles](../README.md) and [secrets](../../data/variables/README.md), although the secrets can be ommited if you lazy.  
-I also provide two Dockerfiles, one with secrets and using Alpine, the other with Debian and without secrets. You decide what you want.
+For some of this to make sense, you'll need some knowledge about [Dockerfiles](../README.md).
 
 ## Contents
 
@@ -11,9 +10,10 @@ I also provide two Dockerfiles, one with secrets and using Alpine, the other wit
 	- [Short](#11-short)
 	- [Long](#12-longerish-explanation)
 	- [Flowchart](#13-flowchart)
-2. [Nginx configuration file](#2-nginx-configuration-file)
-3. [Nginx Dockerfile](#3-nginx-dockerfile)
-4. [SSL/TLS certificate](#4-ssltls-certificate)
+2. [Nginx setup](#2-nginx-setup)
+	- [Nginx configuration file](#21-nginx-configuration-file)
+	- [Nginx Dockerfile](#22-nginx-dockerfile)
+3. [SSL/TLS certificate](#3-ssltls-certificate)
 
 ### 1. Nginx explanation
 
@@ -24,7 +24,7 @@ Honestly you can skip this whole section if you don't care or already know this 
 #### 1.1. Short
 
 Nginx is the webserver of our stack. It's the point of entry to our infrastructure. In short, nginx is the program that receives the requests from clients, parses them, decides what needs to be done with them and then sends back a response to the client.  
-We can configure nginx's behaviour with a [config file](#2-nginx-configuration-file)
+We can configure nginx's behaviour with a [config file](#21-nginx-configuration-file)
 
 #### 1.2. Longerish explanation
 
@@ -38,7 +38,7 @@ By default Nginx won't recognise these scripts (dynamic content). So we configur
 
 In our case, the proxy is a different container, the [wordpress/php container](../wordpress/README.md). Now, you probably haven't set it up yet, so displaying dynamic content won't be possible, but that comes later.  
 You might ask, how does Nginx differentiate between static and dynamic content. Well, we need to tell it through the configuration file. By default everything requested will be served statically as is. In our case we setup a rule that states if the file has a `.php` extension, then we send it to our proxy for processing. In theory you can do this for different kind of files as well, like `.py` files etc.  
-How to do all this will be in the [next segment](#2-nginx-configuration-file).<br>
+How to do all this will be in the [next segment](#21-nginx-configuration-file).<br>
 
 #### 1.3. Flowchart
 
@@ -48,7 +48,9 @@ This is a simplified flowchart, a lot more happens, but for the purposes of the 
 
 A full flowchart of the infrastructure is available in the [docker-compose readme](../../README.md#flowchart).
 
-### 2. Nginx configuration file
+### 2. Nginx setup
+
+#### 2.1. Nginx configuration file
 
 The config file already has short explanations. You can learn more here or just skip this section.
 I'll explain the various lines from the configuration file in more detail here.  
@@ -94,7 +96,7 @@ server {
 
 
 
-### 3. Nginx Dockerfile
+#### 2.2. Nginx Dockerfile
 
 
-### 4. SSL/TLS certificate
+### 3. SSL/TLS certificate

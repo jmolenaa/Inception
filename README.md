@@ -15,7 +15,8 @@ There is a lot of stuff to cover and a lot of code to explain, therefore I won't
 
 Also, the project can't really be split up into sections, since a lot of the various segments depend on knowledge of the other segments. This can get confusing. I'll be referring to other sections whenever some of the knowledge is required with links to that stuff, so there will be some hopping.<br>
 
-I also did several things a bit differently from most of the other repositories out there, when that happens I'll try and give some explanations and how to adjust stuff if you don't want to bother. <br>
+When I was doing this project I made use of docker secrets for user credentials and the TLS/SSL certificate. This adds some complexity to the project so I decided to omit them here.  
+I might add an explanation on them in the future, and if you want to use them, definitely do and feel free to shoot me a message or drop by if you have questions :).
 
 And last, because of the way we do this project it might be outdated in a year or two, especially the versions of the Linux distros I use. Keep this in mind 🙂.
 
@@ -27,7 +28,6 @@ And last, because of the way we do this project it might be outdated in a year o
    - [wordpress](./srcs/requirements/wordpress/README.md)
    - [mariadb](./srcs/requirements/mariadb/README.md)
 4. [docker-compose](./srcs/README.md)
-5. [secrets and environment](./srcs/data/variables/README.md)
 
 ### Order of operations
 
@@ -41,7 +41,7 @@ Keep in mind, this is the order that worked for me, with the knowledge I had at 
 2. Setup the [wordpress](./srcs/requirements/wordpress/README.md) container.
 3. Connect nginx to worpdress with [docker-compose](./srcs/README.md) and [volumes](./srcs/README.md#volumes).
 4. Setup the [mariadb](./srcs/requirements/mariadb/README.md) container.
-5. Figure out login credentials, database credentials and TLS/SSL with [secrets and env variables](./srcs/data/variables/README.md)
+5. Figure out login credentials, database credentials with [env variables](./srcs/data/variables/README.md) and and [TLS/SSL](./srcs/requirements/nginx/README.md#3-ssltls-certificate)
 6. Connect wordpress to mariadb with [docker-compose](./srcs/README.md) and [volumes](./srcs/README.md#volumes).
 7. Setup [network](./srcs/README.md#networks) for the containers to communicate.
 8. [Setup VM](./VM_setup.md) if you haven't already.
@@ -50,7 +50,7 @@ Keep in mind, this is the order that worked for me, with the knowledge I had at 
 
 - Again, keep in mind this whole thing might be outdated at this point
 - Remember to use the penultimate stable version, which might have changed since I did this project (the Alpine version changed whilst I was doing the project)
-- On Mac, if you docker commands don't work, you need the docker desktop application and it needs to be **running**
+- On Mac, if your docker commands don't work, you need the docker desktop application and it needs to be **running**
 - You'll probably use the browser to test if things work. Keep in mind that modern browsers do a lot of stuff behind the scenes, particularly redirections. It might f.e. redirect any http request to https for you. Same with request to port 80, you might type localhost:80 and it will redirect it automatically to https://localhost:443. So I recommend using curl to test if your connections work properly
 - If anything doesn't seem to work even though it used to, your first step should be pruning the system. This means getting rid of any lingering images, caches or anything else. Docker loves to cache and sometimes behaviour can be weird. For this I use:
 ```

@@ -27,7 +27,7 @@ apt install curl openssh-server docker-compose git python3-setuptools openssl vi
 - docker-compose - this one so you can run the containers, requires some extra [setup](#docker)
 - git - this is for the evaluation so you can clone the repository, also you might use it for pushing to the repository
 - python3-setuptools - this is necessary to run docker stuff[^1]
-- openssl - this is for generating the SSL/TSL certificate, not strictly necessary since you can just generate them in the container, but I'll explain that [elsewhere](./srcs/requirements/nginx/README.md#SSL/TLS-certificate)
+- openssl - this is for generating the SSL/TSL certificate, not strictly necessary since you can just generate them in the container, but I'll explain that [elsewhere](./srcs/requirements/nginx/README.md#3-ssltls-certificate)
 - vim - you can use nano as well
 - make - well, you need it to use the Makefile
 
@@ -62,7 +62,7 @@ Now, I've got an [nginx test](./nginxtest.sh) that runs a couple tests with curl
 - `curl localhost:80` - just test port 80
 - `curl https://localhost:80` - test it through an https
 - `curl localhost:443` - test the port it's actually supposed to work on, but it's an HTTP instead of an HTTPS, so it should return a Bad Request
-- `curl https://localhost:443` - send it through HTTPS, this shouldn't work if you already setup the [SSL/TLS certificate](./srcs/requirements/nginx/README.md#SSL/TLS-certificate).
+- `curl https://localhost:443` - send it through HTTPS, this shouldn't work if you already setup the [SSL/TLS certificate](./srcs/requirements/nginx/README.md#3-ssltls-certificate).
 - `curl -k https://localhost443` - ignores the self signed certificate and should return your webpage
 
 Just keep these handy for the evaluation or test with it yourself to make sure everything works as intended.
