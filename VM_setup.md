@@ -8,6 +8,7 @@
 4. [Extra information](#4-extra-information)
 	- [curl](#41-curl)
 	- [docker](#42-docker)
+	- [hosts file](#43-hosts-file)
 
 ### 1. Distribution choice
 
@@ -76,5 +77,9 @@ And then another command to update the group:
 `newgrp docker`
 And that should make it work
 
+#### 4.3. hosts file
+
+The subject asks that you be able to connect to your website through the damin name [you intra login].42.fr. One of the things we need to do to have this work is to modify the /etc/hosts file on your machine (be it laptop or your VM).  
+So, just open the `/etc/hosts` file in your editor of choice with sudo permissions and add the line `127.0.0.1 [your intra login].42.fr` somewhere in there (just at the top is fine). And that's it :)
 
 [^1]: some python stuff that our version of docker is running is deprecated so docker-compose won't run, you could also alternatively install the docker-compose-v2 package, but I'm not sure that's subject compliant
