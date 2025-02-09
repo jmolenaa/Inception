@@ -1,6 +1,5 @@
-FROM alpine:3.19
+FROM alpine:3.20
 
-# -y for apt-get to assume yes for any questions and run non-interactively
 RUN apk update && apk add \
 		bash \
 		nginx \
@@ -20,5 +19,3 @@ EXPOSE 443
 # entrypoint since we always just want to start with nginx and it running in foreground
 # this is to run nginx as not a daemon, but the main process in the container
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
-
-# CMD nginx -g "daemon off;"
