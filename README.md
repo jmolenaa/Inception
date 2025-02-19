@@ -41,7 +41,7 @@ Keep in mind, this is the order that worked for me, with the knowledge I had at 
 2. Setup the [wordpress](./srcs/requirements/wordpress/README.md) container.
 3. Connect nginx to worpdress with [docker-compose](./srcs/README.md) and [volumes](./srcs/README.md#volumes).
 4. Setup the [mariadb](./srcs/requirements/mariadb/README.md) container.
-5. Figure out login credentials, database credentials with [env variables](./srcs/data/variables/README.md) and and [TLS/SSL](./srcs/requirements/nginx/README.md#3-ssltls-certificate)
+5. Figure out login credentials, database credentials with [env variables](./srcs/data/variables/README.md), and [TLS/SSL](./srcs/requirements/nginx/README.md#3-ssltls-certificate)
 6. Connect wordpress to mariadb with [docker-compose](./srcs/README.md) and [volumes](./srcs/README.md#volumes).
 7. Setup [network](./srcs/README.md#networks) for the containers to communicate.
 8. [Setup VM](./VM_setup.md) if you haven't already.
