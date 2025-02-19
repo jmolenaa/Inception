@@ -7,7 +7,7 @@ Again, I'm not gonna really jump into the theory and explain everything in beaut
 1. [Images, containers](#1-images-containers)
 2. [What is a Dockerfile](#2-what-is-a-dockerfile)
 3. [General order and setup of Dockerfiles](#3-general-order-and-setup-of-dockerfiles)
-4. [Useful commands](#4-useful-commands-for-docker)
+4. [Commands cheatsheet](../../assets/commands_cheat_sheet.md)
 
 ### 1. Images, containers
 
@@ -51,6 +51,4 @@ So specifically for the Inception project, each Dockerfile we write will follow 
 6. Expose ports.
 7. Define the entrypoint of the container with `ENTRYPOINT` or `CMD` or both.
 
-### 4. Useful commands for docker
-
-`docker build -t []
+### 4. [Command cheatsheet](../../assets/commands_cheat_sheet.md)
