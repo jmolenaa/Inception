@@ -15,21 +15,21 @@ Docker-compose makes most of these useless, so you might not use these, but if y
 
 - `docker ps`[^1]                                                  - List running containers
 - `docker ps -a`                                                   - List all containers (running + stopped)
-<br>
+  
 - `docker run <image_name>`                                        - Run a container using the specified image
 - `docker run -d <image_name>`                                     - Run a container in detached mode
 - `docker run -d -p <container_port>:<host_port> <image_name>`[^2] - Run a container, mapping the <container_port> to the <host_port>
 - `docker run -it <image_name> bash`                               - Run a container interactively with a shell
-<br>
+  
 - `docker start <container_name>`                                  - Start a stopped container
 - `docker stop <container_name>`                                   - Stop a running container
 - `docker logs <container_name>`[^3]                               - View container logs
-<br>
+  
 - `docker cp <source> <container_name>:<destination>`[^4]          - Copies a file from the host machine to the destination in the specified container
 - `docker cp <container_name>:<source> <destination>`[^5]          - Copies a file from the container to the destination on the host machine
-<br>
+  
 - `docker exec -it <container_name> <command>`                     - Execute the command in the container
-- `docker exec -it <container_name> bash`                          - Access a running container's shell 
+- `docker exec -it <container_name> bash`                          - Access a running container's shell  
 ^^^^^^^^
 VERY USEFUL TO KNOW, ALSO DURING THE EVALUATION, ALLOWS YOU TO MANIPULATE THE SERVICE FROM WITHIN, LIKE LOOKING AT THE DATABASE
 <br>
