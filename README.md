@@ -28,6 +28,7 @@ And last, because of the way we do this project it might be outdated in a year o
    - [wordpress](./srcs/requirements/wordpress/README.md)
    - [mariadb](./srcs/requirements/mariadb/README.md)
 4. [docker-compose](./srcs/README.md)
+5. [command cheat sheet](./assets/commands_cheat_sheet.md)
 
 ### Order of operations
 
@@ -51,7 +52,7 @@ Keep in mind, this is the order that worked for me, with the knowledge I had at 
 - Again, keep in mind this whole thing might be outdated at this point
 - Remember to use the penultimate stable version, which might have changed since I did this project (the Alpine version changed whilst I was doing the project)
 - On Mac, if your docker commands don't work, you need the docker desktop application and it needs to be **running**
-- You'll probably use the browser to test if things work. Keep in mind that modern browsers do a lot of stuff behind the scenes, particularly redirections. It might f.e. redirect any http request to https for you. Same with request to port 80, you might type localhost:80 and it will redirect it automatically to https://localhost:443. So I recommend using curl to test if your connections work properly
+- You'll probably use the browser to test if things work. Keep in mind that modern browsers do a lot of stuff behind the scenes, particularly redirections. It might f.e. redirect any http request to https for you. Same with request to port 80, you might type localhost:80 and it will redirect it automatically to https://localhost:443. So I recommend using [curl](./VM_setup.md#41-curl) to test if your connections work properly
 - If anything doesn't seem to work even though it used to, your first step should be pruning the system. This means getting rid of any lingering images, caches or anything else. Docker loves to cache and sometimes behaviour can be weird. For this I use:
 ```
 docker stop docker ps -qa
