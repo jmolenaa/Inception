@@ -18,18 +18,18 @@ Docker-compose makes most of these useless, so you might not use these, but if y
 <br>
 
 - `docker run <image_name>`                                        - Run a container using the specified image
-- `docker run -d <image_name>`                                     - Run a container in detached mode
-- `docker run -d -p <container_port>:<host_port> <image_name>`[^2] - Run a container, mapping the <container_port> to the <host_port>
+- `docker run -d <image_name>`                                     - Run a container in detached mode[^2]
+- `docker run -d -p <container_port>:<host_port> <image_name>`[^3] - Run a container, mapping the <container_port> to the <host_port>
 - `docker run -it <image_name> bash`                               - Run a container interactively with a shell
 <br>
 
 - `docker start <container_name>`                                  - Start a stopped container
 - `docker stop <container_name>`                                   - Stop a running container
-- `docker logs <container_name>`[^3]                               - View container logs
+- `docker logs <container_name>`[^4]                               - View container logs
 <br>
 
-- `docker cp <source> <container_name>:<destination>`[^4]          - Copies a file from the host machine to the destination in the specified container
-- `docker cp <container_name>:<source> <destination>`[^5]          - Copies a file from the container to the destination on the host machine
+- `docker cp <source> <container_name>:<destination>`[^5]          - Copies a file from the host machine to the destination in the specified container
+- `docker cp <container_name>:<source> <destination>`[^6]          - Copies a file from the container to the destination on the host machine
 <br>
 
 - `docker exec -it <container_name> <command>`                     - Execute the command in the container
@@ -42,7 +42,7 @@ VERY USEFUL TO KNOW, ALSO DURING THE EVALUATION, ALLOWS YOU TO MANIPULATE THE SE
 
 - `docker rm <container_name>`      - Remove a container (must be stopped first)
 - `docker rmi <image_name>`         - Remove an image
-- `docker system prune -af`[^6]     - Remove unused containers, networks, images
+- `docker system prune -af`[^7]     - Remove unused containers, networks, images
 - `docker volume prune -af`         - Remove unused volumes
 - `docker container prune -af`      - Remove stopped containers
 - `docker image prune -af`          - Remove unused images
@@ -57,8 +57,9 @@ VERY USEFUL TO KNOW, ALSO DURING THE EVALUATION, ALLOWS YOU TO MANIPULATE THE SE
 
 
 [^1]: Use this one, it will show you if the container actually started and if it's still running, it might be some error occured and this is the first step identifying if if somehting went wrong.
-[^2]: This is used for the nginx container to make it communicate with the host.
-[^3]: This will just throw out whatever the programs in the container wrote to STDOUT and STDERR, so you can tell from these if or what went wrong.
-[^4]: f.e. `docker cp ./nginx.conf nginx:/etc/nginx/http.d/default.conf`
-[^5]: f.e. `docker cp nginx:/etc/nginx/http.d/default.conf ./nginx.conf`
-[^6]: Your first tool for solving problems is this command and everything below it.
+[^2]: Detached mode means your container runs in the background and you get control of the shell again. If you don't do this you have to open a new terminal if you want to use commands.
+[^3]: This is used for the nginx container to make it communicate with the host.
+[^4]: This will just throw out whatever the programs in the container wrote to STDOUT and STDERR, so you can tell from these if or what went wrong.
+[^5]: f.e. `docker cp ./nginx.conf nginx:/etc/nginx/http.d/default.conf`
+[^6]: f.e. `docker cp nginx:/etc/nginx/http.d/default.conf ./nginx.conf`
+[^7]: Your first tool for solving problems is this command and everything below it.
