@@ -1,21 +1,21 @@
 # Docker compose
 
-I reccommend reading up on [Dockerfiles](./requirements/README.md) first.
+I recommend reading up on [Dockerfiles](./requirements/README.md) first.
 
 ## Contents
 
 1. [What is docker-compose](#1-what-is-docker-compose)
 2. [volumes](#2-volumes)
 3. [networks](#3-networks)
-4. [Components and attributes](#4-components-and-attributes)
-    4.1. [Components](#41-components)
-	&emsp;4.1.1. [services](#411-services)
-	&emsp;4.1.2. [volumes](#412-volumes)
-	&emsp;4.1.3. [networks](#413-networks)
-	4.2. [Attributes](#42-attributes)
-	&emsp;4.2.1. [services attributes](#421-services-attributes)
-	&emsp;4.2.2. [volumes attributes](#422-volumes-attributes)
-	&emsp;4.2.3. [networks attributes](#423-networks-attributes)
+4. [Components and attributes](#4-components-and-attributes)  
+	4.1. [Components](#41-components)  
+	&emsp;4.1.1. [services](#411-services)  
+	&emsp;4.1.2. [volumes](#412-volumes)  
+	&emsp;4.1.3. [networks](#413-networks)  
+	4.2. [Attributes](#42-attributes)  
+	&emsp;4.2.1. [services attributes](#421-services-attributes)  
+	&emsp;4.2.2. [volumes attributes](#422-volumes-attributes)  
+	&emsp;4.2.3. [networks attributes](#423-networks-attributes)  
 5. [Command cheat-sheet](../assets/commands_cheat_sheet.md#docker-compose)
 
 ### 1. What is docker-compose
@@ -105,7 +105,7 @@ build: ./requirements/nginx/Dockerfile
 - **`ports`** - maps the container's internal ports to the host machine's ports. This allows you to access the container's services from outside the container, such as through a web browser or API. f.e.
 ```yaml
 ports:
-	- "443:443"
+       - "443:443"
 ```
 <br>
 
@@ -132,14 +132,14 @@ The short syntax uses a single string with colon separated values in this format
 ```yaml
  volumes:
       - wordpress:/var/www/html, or
-	  - /home/jmolenaa/data/wordpress:/var/www/html
+      - /home/jmolenaa/data/wordpress:/var/www/html
 ```
 <br>
 
 - **`networks`** - defines which networks the service should be connected to. These have to be defined by the [networks component](#413-networks), f.e.
 ```yaml
 networks:
-	- inception
+       - inception
 ```
 
 ##### 4.2.2. Volumes attributes
